@@ -11,17 +11,24 @@ public class UserRegistration {
 		String firstName = scanner.next();
 		System.out.println(Pattern.matches("^[A-Z]{1}[A-Za-z]{2,}$", firstName));
 	}
-	
+
 	public void validLastName() {
 		System.out.println("Enter Last name starts with Cap and has minimum 3 characters: ");
 		String lastName = scanner.next();
 		System.out.println(Pattern.matches("^[A-Z]{1}[A-Za-z]{2,}$", lastName));
 	}
 
+	public void validEmail() {
+		System.out.print("Enter email Id : ");
+		String email = scanner.next();
+		System.out.println(Pattern.matches("^(abc)[.]{1}[A-Za-z]*[@]{1}(bl.co)(.in)*$", email));
+	}
+
 	public static void main(String[] args) {
-		System.out.println("Welcometo User Registration Problem!");
+		System.out.println("Welcome to User Registration Problem!");
 		UserRegistration userRegistration = new UserRegistration();
 		userRegistration.validFirstName();
 		userRegistration.validLastName();
+		userRegistration.validEmail();
 	}
 }
