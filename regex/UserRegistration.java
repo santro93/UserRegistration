@@ -24,11 +24,18 @@ public class UserRegistration {
 		System.out.println(Pattern.matches("^(abc)[.]{1}[A-Za-z]*[@]{1}(bl.co)(.in)*$", email));
 	}
 
+	public void validPhoneNumber() {
+		System.out.print("Enter phone number : ");
+		String phone = scanner.next();
+		System.out.println(Pattern.matches("(0|91)?[7-9][0-9]{9}", phone));
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration Problem!");
 		UserRegistration userRegistration = new UserRegistration();
 		userRegistration.validFirstName();
 		userRegistration.validLastName();
 		userRegistration.validEmail();
+		userRegistration.validPhoneNumber();
 	}
 }
