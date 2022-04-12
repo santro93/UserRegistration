@@ -30,6 +30,12 @@ public class UserRegistration {
 		System.out.println(Pattern.matches("(0|91)?[7-9][0-9]{9}", phone));
 	}
 
+	public void validPassword() {
+		System.out.print("Enter password : ");
+		String password = scanner.next();
+		System.out.println(Pattern.matches("^[A-Za-z0-9].{8,}$", password));
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration Problem!");
 		UserRegistration userRegistration = new UserRegistration();
