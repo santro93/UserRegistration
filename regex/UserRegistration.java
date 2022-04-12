@@ -43,5 +43,6 @@ public class UserRegistration {
 		userRegistration.validLastName();
 		userRegistration.validEmail();
 		userRegistration.validPhoneNumber();
+		userRegistration.validPassword();
 	}
 }
