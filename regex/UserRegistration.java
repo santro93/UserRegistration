@@ -33,8 +33,7 @@ public class UserRegistration {
 	public void validPassword() {
 		System.out.print("Enter password : ");
 		String password = scanner.next();
-		System.out.println(Pattern.matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,}$", password));
-	}
+		 System.out.println(Pattern.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,}$", password));	}
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration Problem!");
