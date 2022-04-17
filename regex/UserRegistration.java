@@ -16,8 +16,14 @@ public class UserRegistration {
 		return Pattern.matches(NAME, lastName);
 	}
 
-	public boolean validEmail(String email) {
-		return Pattern.matches(EMAIL, email);
+	public static String validEmail(String emailId) {
+		String emailPattern = "^[a-zA-Z0-9]+[.(a-zA-Z0-9)]*[@]{1}[a-z]+[.]{1}[a-z]{2,4}[.]*[a-z]*{2}$";
+		Pattern pattern = Pattern.compile(emailId);
+		if (emailId.matches(emailPattern)) { // check Input and Pattern
+			return "Happy";
+		} else {
+			return "Sad";
+		}
 	}
 
 	public boolean validPhoneNumber(String phoneNumber) {

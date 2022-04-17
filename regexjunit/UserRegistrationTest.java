@@ -2,7 +2,6 @@ package com.bridgelabz.regexjunit;
 
 import org.junit.Assert;
 import org.junit.Test;
-
 import com.bridgelabz.regex.UserRegistration;
 
 public class UserRegistrationTest {
