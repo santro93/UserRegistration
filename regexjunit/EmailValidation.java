@@ -1,46 +1,44 @@
 package com.bridgelabz.regexjunit;
 
+import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
 import java.util.Collection;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import com.bridgelabz.regex.ValidEmail;
 
-import com.bridgelabz.regex.UserRegistration;
-
+@RunWith(Parameterized.class)
 public class EmailValidation {
-	public String testEmail;
-	public String expectedResult;
-	public UserRegistration userRegistration;
+	private String emailTest;
+	private boolean expectedResult;
+	private ValidEmail validEmail;
 
-	public EmailValidation(String testEmail, String expectedResult) {
-		super();
-		this.testEmail = testEmail;
-		this.expectedResult = expectedResult;
-	}
+	public EmailValidation(String email, boolean expectedResult) {
+	        this.emailTest = email;
+	        this.expectedResult = expectedResult;
+	    }
 
 	@Before
 	public void initialize() {
-		userRegistration = new UserRegistration();
+		validEmail = new ValidEmail();
 	}
 
 	@Parameterized.Parameters
-	public static Collection input() {
-		return Arrays.asList(new Object[][] { { "abc@yahoo.com", "Happy" }, { "abc-100@yahoo.com", "Sad" },
-				{ "abc.100@yahoo.com", "Happy" }, { "abc111@abc.com", "Happy" }, { "abc-100@abc.net", "Happy" },
-				{ "abc.100@abc.com.au", "Happy" }, { "abc@1.com", "Happy" }, { "abc@gmail.com.com", "Happy" },
-				{ "abc+100@gmail.com", "Happy" }, { "abc", "Sad" }, { "abc@.com.my", "Sad" },
-				{ "abc123@gmail.a", "Sad" }, { "abc123@.com", "Sad" }, { "abc123@.com.com", "Sad" },
-				{ ".abc@abc.com", "Sad" }, { "abc()*@gmail.com", "Sad" }, { "abc@%*.com", "Sad" },
-				{ "abc..2002@gmail.com", "Sad" }, { "abc.@gmail.com", "Happy" }, { "abc@abc@gmail.com", "Sad" },
-				{ "abc@gmail.com.1a", "Sad" }, { "abc@gmail.com.aa.au", "Sad" }, });
+	public static Collection data() {
+		return Arrays.asList(new Object[][] { { "abc@yahoo.com", true }, { "abc-100@yahoo.com", true },
+				{ "abc.100@yahoo.com", true }, { "abc111@abc.com", true }, { "abc-100@abc.net", true },
+				{ "abc.100@abc.com.au", true }, { "abc@1.com", true }, { "abc@gmail.com.com", true },
+				{ "abc+100@gmail.com", true }, { "abc", false }, { "abc@.com.my", false }, { "abc123@gmail.a", false },
+				{ "abc123@.com", false }, { "abc123@.com.com", false }, { ".abc@abc.com", false },
+				{ "abc()*@gmail.com", false }, { "abc@%*.com", false }, { "abc..2002@gmail.com", false },
+				{ "abc.@gmail.com", false }, { "abc@abc@gmail.com", false }, { "abc@gmail.com.1a", false },
+				{ "abc@gmail.com.aa.au", false } });
 	}
 
 	@Test
-	public void testUserRegistrationTest() {
-		System.out.println("This is Expected Result " + this.expectedResult);
-		String message = UserRegistration.validEmail(testEmail);
-		Assert.assertEquals(this.expectedResult, message);
+	public void givenEmailAsVar_ShouldReturnTrueorFalse() {
+		assertEquals(expectedResult, validEmail.validateEmail(emailTest));
 	}
 }

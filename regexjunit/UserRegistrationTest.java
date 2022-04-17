@@ -9,25 +9,25 @@ public class UserRegistrationTest {
 
 	@Test
 	public void givenFirstName_whenProper_ShouldReturnTrue() {
-		boolean result = userRegistration.validFirstName("Santosh");
+		boolean result = userRegistration.validFirstName("Akshara");
 		Assert.assertTrue(result);
 	}
 
 	@Test
 	public void givenFirstName_whenNotProper_ShouldReturnFalse() {
-		boolean result = userRegistration.validFirstName("san");
+		boolean result = userRegistration.validFirstName("aks");
 		Assert.assertFalse(result);
 	}
 
 	@Test
 	public void givenLastName_whenProper_ShouldReturnTrue() {
-		boolean result = userRegistration.validLastName("Nagargoje");
+		boolean result = userRegistration.validLastName("Phalake");
 		Assert.assertTrue(result);
 	}
 
 	@Test
 	public void givenLastName_whenNotProper_ShouldReturnFalse() {
-		boolean result = userRegistration.validLastName("nagaRgoje");
+		boolean result = userRegistration.validLastName("phALKE");
 		Assert.assertFalse(result);
 	}
 
@@ -57,13 +57,13 @@ public class UserRegistrationTest {
 
 	@Test
 	public void givenPassword_whenProper_ShouldReturnTrue() {
-		boolean result = userRegistration.validPassword("Pqr@12345");
+		boolean result = userRegistration.validPassword("Aks@12345");
 		Assert.assertTrue(result);
 	}
 
 	@Test
 	public void givenPassword_whenNotProper_ShouldReturnFalse() {
-		boolean result = userRegistration.validPassword("asdfg@#$%");
+		boolean result = userRegistration.validPassword("KiHoh23#%");
 		Assert.assertFalse(result);
 	}
 }
